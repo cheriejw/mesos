@@ -1,4 +1,5 @@
 # Mesosphere DC/OS Frontend Challenge
+_For the purpose of this challenge, I have selected to use Vue.js and LocalStorage._
 
 ![DCM wireframe](https://mesosphere.com/wp-content/uploads/2015/04/datacenter-manager.png)
 
@@ -35,7 +36,9 @@ npm run lint
 ---
 
 ### Approach
-Since the design seems to be rendering similar code, this is a great opportunity to utilize components (React or Vue)! Because of time constraint, might end up using Vue, also might be interesting to use the [computed](https://vuejs.org/v2/guide/computed.html) property as well.
+Since the design seems to be rendering similar code, this is a great opportunity to utilize components (React or Vue)! Because of time constraint, might end up using Vue.
+
+![Component/Data Flow](datacomponentflow.png)
 
 #### View
 - Application: To house this application/the background.
@@ -51,6 +54,9 @@ Since the design seems to be rendering similar code, this is a great opportunity
   - Track last added Application type (via Stack). : Whenever user clicks any off the application add button, layer will add to stack. + and - will add/remove from stack, server will also need to know what application is installed on it, have server query this "stack" first to see if applications to server changed. Thinking about an array of stacks.
 - Storing servers and which applications are on server: for server to render application image, each entry should look like: `[3456] => {"applicationIds": [1234,2345]}`
 - Store in Local store? Will solve persistence and since value is "global" will be easier to maintain state and serve functions for this application context.
+- To remove I just need to know which server to delete app from, which would change the style of the server if next app is not the same.
+- LocalStorage is ApplicationNames mapped to a stack of serverIds. i.e. `{"Hadoop": [1,2,5], "Spark": [3,4], "Storm": [2,5]}` and servers `[[], ["Hadoop"]]`
+- SQLite on the browser?
 
 ### Nice-to-haves
 - I want to utilize HTML5 semantics for acessability.
@@ -58,5 +64,13 @@ Since the design seems to be rendering similar code, this is a great opportunity
 - Popups/Alerts when can't add anymore applications.
 - Selection of server to add applications to or remove applications from.
 - Paged server display.
+- Pagination
 - Disabled plus over Available Apps when no more servers, on hover will show tooltip saying there are no more available servers.
 - Data persistence: Not important but makes sense for a mock service to have persisted data.
+
+### Disclaimers
+- Space-arround on the server canvas makes adding it weird.
+- Server canvas title should stay up.
+- Some yellow flags I potentially see are the redundancy of passing up data.
+- This "application" doesnt accurately visually identify WHICH servers the applications are on, this was the fastest path.
+- This is **NOT RESPONSIVE**, so a minimum screen width of 1300px is required for good visual experience. This is an easy fix though.
