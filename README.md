@@ -69,7 +69,7 @@ Since the design seems to be rendering similar code, this is a great opportunity
 - Data persistence: Not important but makes sense for a mock service to have persisted data.
 
 ### Disclaimers
-- Space-arround on the server canvas makes adding it weird.
+- Space-around on the server canvas makes adding it weird.
 - Server canvas title should stay up.
 - Some yellow flags I potentially see are the redundancy of passing up data.
 - This is **NOT RESPONSIVE**, so a minimum screen width of 1300px is required for good visual experience. This is an easy fix though.
