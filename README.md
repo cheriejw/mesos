@@ -72,5 +72,4 @@ Since the design seems to be rendering similar code, this is a great opportunity
 - Space-arround on the server canvas makes adding it weird.
 - Server canvas title should stay up.
 - Some yellow flags I potentially see are the redundancy of passing up data.
-- This "application" doesnt accurately visually identify WHICH servers the applications are on, this was the fastest path.
 - This is **NOT RESPONSIVE**, so a minimum screen width of 1300px is required for good visual experience. This is an easy fix though.
